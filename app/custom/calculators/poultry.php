@@ -11,7 +11,6 @@ class poultry {
         $this->unintsPerDay = $params['unints'];
         $this->feedCost  = $params['feedCost'];
         $this->amountOfFeed = $params['feedInOneBag'];
-        $this->messurmentType = $params['messurementType'];
         $this->unitsSoldFor =  $params['unitsSoldFor'];
         
     }
@@ -50,6 +49,13 @@ class poultry {
         return $this->perDay;
     }
     
+    public function feedPerMonth(){
+        $this->perMonth = self::setDailyFeed() * 30;
+        $this->perMonth =  $this->perMonth/1000;
+        
+        return $this->perMonth;
+    }
+    
     public function feedUsage(){
         $this->feed['used'] = $this->perDay() * $this->numberOfAnimals;
         
@@ -57,9 +63,7 @@ class poultry {
     }
     
     public function convertToMetric(){
-        if($this->messurementType = 1 ){
-            $this->amountOfFeed = $this->amountOfFeed / 2.2;
-        }
+        $this->amountOfFeed = $this->amountOfFeed / 2.2;
         
         return $this->amountOfFeed;
     }

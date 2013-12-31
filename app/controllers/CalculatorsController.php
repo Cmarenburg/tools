@@ -1,6 +1,6 @@
 <?php
 
-use Custom\Calculators\poultry() as calculator;
+use Custom\Calculators\poultry as calculator;
 
 class CalculatorsController extends BaseController {
 
@@ -11,9 +11,8 @@ class CalculatorsController extends BaseController {
 	 */
 	protected $calculator;
 
-	public function __construct(Calculator $calculator)
+	public function __construct()
 	{
-		$this->calculator = $calculator;
 	}
 
 	/**
@@ -44,8 +43,18 @@ class CalculatorsController extends BaseController {
 	 */
 	public function show()
 	{
+	    
+	     $calculator = New Calculator(Input::all());
+	     
+	     $calculator->setDailyFeed()->convertToMetric();
         
-		return View::make('calculators.show');
+	    $info['dailyFeed'] = $calculator->feedUsage();
+	    $info['feedPerMonth'] = $calculator->feedPerMonth();
+	    $info['costPerDay'] = $calculator->costPerDay();
+	    $info['incomePerday'] = $calculator->incomePerday()['income'];
+	    $info['profitPerDay'] = $calculator->incomePerDay()['profit'];
+	     
+		return View::make('calculators.poultry.show',compact($info));
 	}
 
 

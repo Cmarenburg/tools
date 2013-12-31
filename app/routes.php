@@ -12,7 +12,5 @@
 */
 
 Route::get('',function(){
-    Return View::make('hello');
+    Return View::make('calculators.poultry.create');
 });
-
-Route::resource('calculators', 'CalculatorsController');

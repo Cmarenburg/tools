@@ -2,28 +2,12 @@
 
 @section('main')
 
-<h1>Show Calculator</h1>
-
-<p>{{ link_to_route('calculators.index', 'Return to all calculators') }}</p>
-
-<table class="table table-striped table-bordered">
-	<thead>
-		<tr>
-			<th>Number_of_animals</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<tr>
-			<td>{{{ $calculator->number_of_animals }}}</td>
-                    <td>{{ link_to_route('calculators.edit', 'Edit', array($calculator->id), array('class' => 'btn btn-info')) }}</td>
-                    <td>
-                        {{ Form::open(array('method' => 'DELETE', 'route' => array('calculators.destroy', $calculator->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
-                        {{ Form::close() }}
-                    </td>
-		</tr>
-	</tbody>
-</table>
-
+<h1>Results are in!</h1>
+    <p> Hi there, the results are in and here they are!</p>
+    
+    <p> You use <strong> {{ $info['dailyFeed'] }} </strong> grams of feed per day. It costs <strong> ${{ $info['costPerDay'] }}</strong> to feed your flock</p>
+    <p> Your profit(or loss) each day on your flock is <strong>${{ $info['profitPerDay'] }}</strong> and your income per day is <strong> {{ $info['incomePerDay'] }} </strong> </p>
+    
+    Thanks for using the Livestock cost calalcutor!
+s
 @stop
