@@ -1,5 +1,7 @@
 <?php
 
+use Custom\Calculators\poultry() as calculator;
+
 class CalculatorsController extends BaseController {
 
 	/**

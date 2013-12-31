@@ -1,8 +1,7 @@
 <?php namespace custom\calculators;
 
 class poultry {
-    
-    
+
     public function __construct($params){
         $this->type = $params['type'];
         if(isset($params['perDay'])){
