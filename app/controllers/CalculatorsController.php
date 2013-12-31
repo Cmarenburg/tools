@@ -21,7 +21,7 @@ class CalculatorsController extends BaseController {
 	 */
 	public function index()
 	{
-		return View::make('calculators.index');
+		return View::make('calculators.poultry.index');
 	}
 
 	/**
@@ -31,7 +31,7 @@ class CalculatorsController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('calculators.create');
+		return View::make('calculators.poultry.create');
 	}
 
 	/**
